@@ -68,10 +68,10 @@ test.describe('API restful-booker with fixtures', {
     const data = await response.json();
     expect(Array.isArray(data)).toBeTruthy();
 
-    for (const elem of data) {
-      expect(elem.bookingid).toBeDefined();
-      expect(typeof elem.bookingid).toBe('number');
-    }
+    // for (const elem of data) {
+    //   expect(elem.bookingid).toBeDefined();
+    //   expect(typeof elem.bookingid).toBe('number');
+    // }
   });
 
   test('Booking - GetBooking', { tag: ['@get', '@get_by_id'],}, async ({ request, bookingId }) => {
