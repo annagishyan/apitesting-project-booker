@@ -1,4 +1,4 @@
-import { test, expect, baseUrl } from './fixtures';
+import { test, expect, baseUrl } from '../fixtures';
 
 test.describe('API restful-booker with fixtures', {
   tag: '@api',
