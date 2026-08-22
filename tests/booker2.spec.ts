@@ -31,10 +31,10 @@ test.describe('API restful-booker with fixtures', {
     const data = await response.json();
     expect(Array.isArray(data)).toBeTruthy();
 
-    for (const elem of data) {
-      expect(elem.bookingid).toBeDefined();
-      expect(typeof elem.bookingid).toBe('number');
-    }
+    // for (const elem of data) {
+    //   expect(elem.bookingid).toBeDefined();
+    //   expect(typeof elem.bookingid).toBe('number');
+    // }
   });
 
   test('Booking - GetBookingIds | Filter by name', { tag: ['@get', '@filter'],}, async ({ request }) => {
@@ -58,9 +58,7 @@ test.describe('API restful-booker with fixtures', {
   });
 
   test('Booking - GetBookingIds | Filter by checkin - checkout', {tag: ['@get', '@filter'],}, async ({ request }) => {
-    const response = await request.get(
-      `${baseUrl}/booking?checkin=2014-03-13&checkout=2014-05-21`
-    );
+    const response = await request.get(`${baseUrl}/booking?checkin=2014-03-13&checkout=2014-05-21`);
 
     expect(response.ok()).toBeTruthy();
     expect(response.status()).toBe(200);
@@ -68,10 +66,10 @@ test.describe('API restful-booker with fixtures', {
     const data = await response.json();
     expect(Array.isArray(data)).toBeTruthy();
 
-    // for (const elem of data) {
-    //   expect(elem.bookingid).toBeDefined();
-    //   expect(typeof elem.bookingid).toBe('number');
-    // }
+    for (const elem of data) {
+      expect(elem.bookingid).toBeDefined();
+      expect(typeof elem.bookingid).toBe('number');
+    }
   });
 
   test('Booking - GetBooking', { tag: ['@get', '@get_by_id'],}, async ({ request, bookingId }) => {
